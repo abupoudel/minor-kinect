@@ -56,7 +56,7 @@ def display_rgb(dev, data, timestamp):
 
     cv.ShowImage('Hands', hands)
     
-    cv.ShowImage('RGB' ,cv.Image)
+    #cv.ShowImage('RGB' ,cv.Image)
 
 def body(dev,ctx):
 		global keep_running
