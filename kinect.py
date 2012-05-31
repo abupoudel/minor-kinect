@@ -81,7 +81,7 @@ def body(dev,ctx):
 freenect.runloop(video = display_rgb, depth = display_depth, body=body)
 
 
-## Some tests on RGB
+# Some tests on RGB
 #	dst = cv.CreateImage(cv.GetSize(cv.Image), cv.IPL_DEPTH_16S, 3)
 #	laplace = cv.Laplace(cv.Image, dst)
 #	cv.SaveImage("laplace.png" , dst)
