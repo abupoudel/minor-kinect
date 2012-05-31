@@ -17,7 +17,6 @@ def display_depth(dev, data, timestamp):
     cv.Flip(cv.Image,None,1)
     cv.ShowImage('Depth' ,cv.Image)
 	
-
 def display_rgb(dev, data, timestamp):
 	
     cv.Image = frame_convert.video_cv(data)
