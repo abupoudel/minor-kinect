@@ -24,4 +24,5 @@
 # ORANGE: Kinect quiet not ready, 
 # GREEN BLINK[2] : Starting up kinect or On some detection, 
 # RED/ORANGE BLINK : Some serious problem }
+# Some LED may not work as expected
 # ====================================================================
