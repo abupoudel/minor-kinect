@@ -5,8 +5,6 @@ import time
 import cython
 import Image
 
-cv.NamedWindow("RGB")
-cv.NamedWindow("Depth")
 keep_running = True
 myAngle = 0
 
