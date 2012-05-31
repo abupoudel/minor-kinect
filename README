@@ -1,0 +1,27 @@
+# ====================================================================
+# Kinect project for Kathford Internation College
+# ====================================================================
+# Features:
+# ====================================================================
+# - Can control tilting by pressing "w" and "s".
+# - Can change the LED as per requirement.
+# - Press ESC to close
+# ====================================================================
+# TODO:
+# ====================================================================
+# - Finest Hand detection
+# - Mouse movement with the help of python api
+# - Multiple hand detection
+# - Implement all of these on a python class
+# - Enjoy :)
+# ====================================================================
+# Informations:
+# ====================================================================
+# LED : 0-6 different modes
+# {OFF : Kinect not in use, 
+# GREEN : Kinect in use, 
+# RED : Kinect quiet busy, 
+# ORANGE: Kinect quiet not ready, 
+# GREEN BLINK[2] : Starting up kinect or On some detection, 
+# RED/ORANGE BLINK : Some serious problem }
+# ====================================================================
