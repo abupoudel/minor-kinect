@@ -1,0 +1,15 @@
+/* 
+    Document   : style
+    Created on : Jun 2, 2012, 3:09:47 PM
+    Author     : fr3ak
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+h1{
+	color: red;
+}

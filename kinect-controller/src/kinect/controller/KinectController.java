@@ -4,7 +4,10 @@
  */
 package kinect.controller;
 
+import com.sun.webpane.webkit.JSObject;
+import java.io.File;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -24,13 +27,27 @@ public class KinectController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
     @Override
     public void start(Stage primaryStage) {
         WebView wb = new WebView();
         WebEngine we = wb.getEngine();
-        we.load("http://localhost/");
-        primaryStage.setScene(new Scene(wb, 300, 250));
+        File file = new File("web/main.html");
+        System.out.println(file.toURI());
+        we.load(file.toURI().toString());
+        JSObject win = (JSObject) we.executeScript("window");
+        win.setMember("app", new JavaApp());
+        Scene scene = new Scene(wb, 300, 250);
+        //scene.getStylesheets().add("web/css/style.css");
+        primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private class JavaApp {
+
+        public void exit() {
+            //Platform.exit();
+            System.out.println("Cool");
+        }
     }
 }
