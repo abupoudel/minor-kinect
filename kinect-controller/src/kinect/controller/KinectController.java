@@ -4,12 +4,8 @@
  */
 package kinect.controller;
 
-import com.sun.webpane.webkit.JSObject;
 import java.io.File;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -35,8 +31,6 @@ public class KinectController extends Application {
         File file = new File("web/main.html");
         System.out.println(file.toURI());
         we.load(file.toURI().toString());
-        JSObject win = (JSObject) we.executeScript("window");
-        win.setMember("app", new JavaApp());
         Scene scene = new Scene(wb, 300, 250);
         //scene.getStylesheets().add("web/css/style.css");
         primaryStage.setScene(scene);
