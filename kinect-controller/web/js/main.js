@@ -7,7 +7,7 @@ $(document).ready(function(){
 		$(this).stop();
 		$(this).animate({
 			right: '0'
-		},500,function(){
+		},250,function(){
 			aniPane = 0;
 		});
 	});
@@ -16,7 +16,7 @@ $(document).ready(function(){
 		$(this).stop();
 		$(this).animate({
 			right: '-99px'
-		},500,function(){
+		},250,function(){
 			aniPane = 0;
 		});
 	});
