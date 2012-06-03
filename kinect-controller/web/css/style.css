@@ -6,10 +6,30 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
-}
-
 h1{
 	color: red;
+}
+
+html, body {
+	margin: 0px;
+	background-color:#FFFFFF;
+	padding: 0px;
+	overflow-x: hidden; 
+}
+
+.log{
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	background-color: #333;
+	color: white;
+}
+
+.pane{
+	position: fixed;
+	width: 100px;
+	right: -99px;
+	top:0px;
+	bottom: 0px;
+	background: black;
 }
