@@ -14,4 +14,6 @@ import javafx.scene.web.WebView;
 public class global {
     public static WebView wb = new WebView();
     public static WebEngine we = wb.getEngine();
+    public static String[] allowedTypes = {".jpg",".mp3",".png",".gif",".jpeg"};
+    public static Boolean showHiddenFileFolder = false;
 }

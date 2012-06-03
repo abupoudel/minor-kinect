@@ -13,8 +13,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.concurrent.Worker.State;
 import javafx.scene.Scene;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
 /**
@@ -59,22 +57,46 @@ class Bridge {
     public void exit() {
         Platform.exit();
     }
+    
+    public void debug(String msg) {
+        System.out.println(msg);
+    }
+    
+    public void fileHandle(){
+        System.out.println("Perform certain file action");
+    }
 
     public void listFolder(String path) {
-        System.out.println(path);
         File folder = new File(path);
         String[] fileList = folder.list();
-        //System.out.println(folder.getParent()); < Gives the parent directory else null
+        String parentDir = folder.getParent();
+        String currentDir = folder.getPath();
+        String hiddenFolder = "THISISNOTAFILENAMEPLEASEDONOTCREATETHISASFILENAME";
+        Boolean first = true;
+        if(global.showHiddenFileFolder == false) hiddenFolder = ".";
+        String detailDir = "{\"currentDir\":\""+currentDir+"\", \"parentDir\":\""+parentDir+"\"}";
         String jsonFolder = "{";
         for(int i=0; i<fileList.length; i++){
-            if(i == fileList.length - 1){
-                jsonFolder += "\""+i +"\""+ ":" + "\""+fileList[i].toString()+"\"";
+            String fileType = "";
+            String fileName = fileList[i];
+            if(fileName.startsWith(hiddenFolder)) continue;
+            if(new File(currentDir+"/"+fileName).isDirectory()){
+                fileType = "[DIR] ";
             } else {
-                jsonFolder += "\""+i +"\""+ ":" + "\""+fileList[i].toString()+"\", ";
+                int j;
+                for(j=0; j<global.allowedTypes.length; j++){
+                    if(fileName.endsWith(global.allowedTypes[j])) break;
+                }
+                if(j == global.allowedTypes.length) continue;
+            }
+            if(first){
+                jsonFolder += "\""+i +"\""+ ":" + "\""+fileType+fileName+"\"";
+                first = false;
+            } else {
+                jsonFolder += ", \""+i +"\""+ ":" + "\""+fileType+fileName+"\"";
             }
         }
         jsonFolder += "}";
-        System.out.println(jsonFolder);
-        global.we.executeScript("fileList('" + jsonFolder + "');");
+        global.we.executeScript("fileList('" + detailDir + "', '" + jsonFolder + "');");
     }
 }

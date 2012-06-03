@@ -26,14 +26,20 @@ $(document).ready(function(){
 	});
 	
 	$(".home_app").click(function(){
-		java.listFolder("/home/fr3ak/Documents/");
+		java.listFolder("/home/fr3ak/");
 	});
 });
 
-function fileList(files){
+function fileList(dirDetail, files){
+	var dirDetail = $.parseJSON(dirDetail);
 	var fileLists = $.parseJSON(files);
+	//java.debug(dirDetail.currentDir);
+	$(".content").html("<b>"+dirDetail.currentDir+"<b><br>");
 	$.each(fileLists,function(key, data){
-		$(".content").append(data+"<br>");
+		if(data.substr(0,6) == "[DIR] ")
+			$(".content").append("<a onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'>"+data+"</a><br>");
+		else 
+			$(".content").append("<a onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'>"+data+"</a><br>");
 	});
 }
 

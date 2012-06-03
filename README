@@ -29,4 +29,14 @@ Please do not commit kinect-controller/nbproject/ folder's files
 # RED/ORANGE BLINK : Some serious problem }
 # Some LED may not work as expected
 # ====================================================================
-# Testing
+# 
+# Java bridging has been a successful test and good going for our
+# project.
+# ====================================================================
+# - Interfacing between Java and JavaScript - success
+# - jQuery implementation - success
+# - png loading - success
+# ====================================================================
+# 
+# Way to go for our project :)
+# 
