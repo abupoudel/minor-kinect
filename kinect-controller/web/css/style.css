@@ -33,3 +33,22 @@ html, body {
 	bottom: 0px;
 	background: black;
 }
+
+.pane_icon{
+	width: 64px;
+	height: 64px;
+	left: 18px;
+	position: relative;
+}
+
+.exit_app{
+	background: url('../images/exit_app.png');
+}
+.home_app{
+	background: url('../images/home_app.png');
+}
+
+.clear{
+	clear: both;
+	height: 5px;
+}
