@@ -62,7 +62,7 @@ class Bridge {
         System.out.println(msg);
     }
     
-    public void fileHandle(){
+    public void fileHandle(String filePath){
         System.out.println("Perform certain file action");
     }
 
