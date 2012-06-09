@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	$(document).mousemove(function(event){
+		$(".cursor").css('left',event.pageX - 64);
+		$(".cursor").css('top',event.pageY - 64);
 		$(".position").html("(" + event.pageX + "," + event.pageY + ")");
 	});
 	

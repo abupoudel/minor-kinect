@@ -11,10 +11,20 @@ h1{
 }
 
 html, body {
-	@cursor: url('../images/mouse_hide.png'),auto;
+	cursor: url('../images/mouse_hide.png'),auto;
 	margin: 0px;
-	background-color:#FFFFFF;
+	@background-color:#FFFFFF;
+	overflow: hidden;
 	padding: 0px;
+	z-index: -2;
+}
+
+.cursor{
+	width: 128px;
+	height: 128px;
+	background: url('../images/hand.png');
+	position: absolute;
+	z-index: -1;
 }
 
 .content{
