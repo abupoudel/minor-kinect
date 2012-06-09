@@ -39,6 +39,7 @@ html, body {
 	bottom: 0px;
 	background-color: #333;
 	color: white;
+	opacity: .3;
 }
 
 .pane{
@@ -49,6 +50,7 @@ html, body {
 	bottom: 0px;
 	padding-left: 10px;
 	background: black;
+	opacity: .5;
 }
 
 .pane_icon{

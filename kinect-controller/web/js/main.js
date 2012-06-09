@@ -7,6 +7,7 @@ $(document).ready(function(){
 	
 	$(".pane").mouseover(function(){
 		$(this).stop();
+		$(".cursor").css('background',"url('images/handy.png')");
 		$(this).animate({
 			right: '0'
 		},250,function(){
@@ -16,6 +17,7 @@ $(document).ready(function(){
 	
 	$(".pane").mouseout(function(){
 		$(this).stop();
+		$(".cursor").css('background',"url('images/hand.png')");
 		$(this).animate({
 			right: '-99px'
 		},250,function(){
