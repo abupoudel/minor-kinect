@@ -16,4 +16,5 @@ public class global {
     public static WebEngine we = wb.getEngine();
     public static String[] allowedTypes = {".jpg",".mp3",".png",".gif",".jpeg"};
     public static Boolean showHiddenFileFolder = false;
+    public static String hiddenFolder = "THISISNOTAFILENAMEPLEASEDONOTCREATETHISASFILENAME";
 }
