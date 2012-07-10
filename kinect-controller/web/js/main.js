@@ -39,14 +39,14 @@ $(document).ready(function(){
 function fileList(dirDetail, files){
 	var dirDetail = $.parseJSON(dirDetail);
 	var fileLists = $.parseJSON(files);
-	//java.debug(dirDetail.currentDir);
-	$(".content").html("<b>"+dirDetail.currentDir+"<b><br>");
+	$(".content").html("<b>"+dirDetail.currentDir+"<b><br><ul class='lists'>");
 	$.each(fileLists,function(key, data){
 		if(data.substr(0,6) == "[DIR] ")
-			$(".content").append("<a onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'>"+data+"</a><br>");
+			$(".content").append("<li class='lists-sub'><a onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'>"+data+"</a></li>");
 		else 
-			$(".content").append("<a onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'>"+data+"</a><br>");
+			$(".content").append("<li class='lists-sub'><a onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'>"+data+"</a></li>");
 	});
+	$(".content").append("</ul>");
 }
 
 function setRootDirectory(dir){

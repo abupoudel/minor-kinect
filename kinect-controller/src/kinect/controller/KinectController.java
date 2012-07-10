@@ -14,6 +14,7 @@ import javafx.event.Event;
 import javafx.event.EventDispatchChain;
 import javafx.event.EventDispatcher;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -55,7 +56,6 @@ public class KinectController extends Application {
         EventDispatcher originalDispatcher = primaryStage.getEventDispatcher();
         primaryStage.setEventDispatcher((new MyEventDispatcher(originalDispatcher)));
         primaryStage.setScene(scene);
-        primaryStage.fullScreenProperty();
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
@@ -75,6 +75,13 @@ class MyEventDispatcher implements EventDispatcher {
             MouseEvent mouseEvent = (MouseEvent) event;
             if (MouseButton.SECONDARY == mouseEvent.getButton()) {
                 mouseEvent.consume();
+            }
+        }
+        
+        if (event instanceof javafx.scene.input.KeyEvent) {
+            KeyEvent ke = (KeyEvent) event;
+            if (ke.getCode().toString().contains("ESCAPE")) {
+                System.exit(0);
             }
         }
         return originalDispatcher.dispatchEvent(event, tail);
