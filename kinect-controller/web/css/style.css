@@ -95,15 +95,15 @@ html, body {
 }
 
 .pageUp{
-	height: 40px;
-	background: A0A0A0;
+	height: 128px;
+	background-image: url('../images/up.png');
 	margin: 0 auto;
-	width: 670px;
+	width: 128px;
 }
 
 .pageDown{
-	height: 40px;
-	background: A0A0A0;
+	height: 128px;
+	background-image: url('../images/down.png');
 	margin: 0 auto;
-	width: 670px;
+	width: 128px;
 }

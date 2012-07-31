@@ -74,9 +74,9 @@ function fileList(dirDetail, files){
 	content += "<b>"+dirDetail.currentDir+"<b><br><div class='pageUp'></div><div class='lists'><div class='frame'>";
 	$.each(fileLists,function(key, data){
 		if(data.substr(0,6) == "[DIR] ")
-			content += "<div class='lists-sub' onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'>"+data+"</div>";
+			content += "<div class='lists-sub folder' onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'>"+data+"</div>";
 		else 
-			content += "<div class='lists-sub' onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'>"+data+"</div>";
+			content += "<div class='lists-sub file' onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'>"+data+"</div>";
 		numbers++;
 	});
 	page = parseInt(numbers/perPage);
