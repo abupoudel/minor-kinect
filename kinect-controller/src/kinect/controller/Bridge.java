@@ -34,6 +34,7 @@ public class Bridge {
         if(global.showHiddenFileFolder == false) global.hiddenFolder = ".";
         String detailDir = "{\"currentDir\":\""+currentDir+"\", \"parentDir\":\""+parentDir+"\"}";
         String jsonFolder = "{";
+        System.out.println(folder.getPath());
         for(int i=0; i<fileList.length; i++){
             String fileType = "";
             String fileName = fileList[i];

@@ -45,7 +45,7 @@ public class KinectController extends Application {
                             JSObject jsobj = (JSObject) global.we.executeScript("window");
                             Bridge myB = new Bridge();
                             jsobj.setMember("java", myB);
-                            String root = "/";
+                            String root = "C:/";
                             global.we.executeScript("setRootDirectory(\""+root+"\")");
                             myB.listFolder(root);
                         }
