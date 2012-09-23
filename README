@@ -28,6 +28,16 @@ Please do not commit kinect-controller/nbproject/ folder's files
 # GREEN BLINK[2] : Starting up kinect or On some detection, 
 # RED/ORANGE BLINK : Some serious problem }
 # Some LED may not work as expected
+# 
+# Please note that trainer.py is just a image capturing file.
+# Press 'p' to save Positive images and 'n' for Negative ones
+# i.e. Background. The trainig of those files should be performed
+# seperately commandline and may take lots of days. During 
+# training.py please create your own folders named "positive" and 
+# "negative" so to save all the images during capturing.
+# These folder shall contains thousands of image samples for each
+# instance so that may exceed the size, so commiting the directories
+# was quiet dizzy.
 # ====================================================================
 # 
 # Java bridging has been a successful test and good going for our

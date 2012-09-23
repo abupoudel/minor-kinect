@@ -39,7 +39,7 @@ def display_depth(dev, data, timestamp):
 	
     cv.Image = frame_convert.pretty_depth_cv(data)
     cv.Flip(cv.Image,None,1)
-    cv.ShowImage('Depth' ,cv.Image)
+    #cv.ShowImage('Depth' ,cv.Image)
 	
 def display_rgb(dev, data, timestamp):
 	
@@ -47,38 +47,38 @@ def display_rgb(dev, data, timestamp):
     cv.Flip(cv.Image,None,1)
     image = cv.Image
     size = cv.GetSize(image)
-    hsv = cv.CreateImage(size, 8, 3)
-    hue = cv.CreateImage(size, 8, 1)
-    sat = cv.CreateImage(size, 8, 1)
-    val = cv.CreateImage(size, 8, 1)
-    hands = cv.CreateImage(size, 8, 1)
-    cv.CvtColor(image, hsv, cv.CV_BGR2HSV)
+    #hsv = cv.CreateImage(size, 8, 3)
+    #hue = cv.CreateImage(size, 8, 1)
+    #sat = cv.CreateImage(size, 8, 1)
+    #val = cv.CreateImage(size, 8, 1)
+    #hands = cv.CreateImage(size, 8, 1)
+    #cv.CvtColor(image, hsv, cv.CV_BGR2HSV)
 
-    cv.Split(hsv, hue, sat, val, None)
-
+    #cv.Split(hsv, hue, sat, val, None)    
+    cv.SaveImage("out.jpg",image);
     detect(image)
     cv.ShowImage('Live', image)
     #cv.ShowImage('Hue', hue)
     #cv.ShowImage('Saturation', sat)
 
-    cv.Threshold(hue, hue, 10, 255, cv.CV_THRESH_TOZERO) #set to 0 if <= 10, otherwise leave as is
-    cv.Threshold(hue, hue, 244, 255, cv.CV_THRESH_TOZERO_INV) #set to 0 if > 244, otherwise leave as is
-    cv.Threshold(hue, hue, 0, 255, cv.CV_THRESH_BINARY_INV) #set to 255 if = 0, otherwise 0
-    cv.Threshold(sat, sat, 64, 255, cv.CV_THRESH_TOZERO) #set to 0 if <= 64, otherwise leave as is
-    cv.EqualizeHist(sat, sat)
+    #cv.Threshold(hue, hue, 10, 255, cv.CV_THRESH_TOZERO) #set to 0 if <= 10, otherwise leave as is
+    #cv.Threshold(hue, hue, 244, 255, cv.CV_THRESH_TOZERO_INV) #set to 0 if > 244, otherwise leave as is
+    #cv.Threshold(hue, hue, 0, 255, cv.CV_THRESH_BINARY_INV) #set to 255 if = 0, otherwise 0
+    #cv.Threshold(sat, sat, 64, 255, cv.CV_THRESH_TOZERO) #set to 0 if <= 64, otherwise leave as is
+    #cv.EqualizeHist(sat, sat)
 
-    cv.Threshold(sat, sat, 64, 255, cv.CV_THRESH_BINARY) #set to 0 if <= 64, otherwise 255
+    #cv.Threshold(sat, sat, 64, 255, cv.CV_THRESH_BINARY) #set to 0 if <= 64, otherwise 255
 
     #cv.ShowImage('Saturation threshold', sat)
     #cv.ShowImage('Hue threshold', hue)
 
-    cv.Mul(hue, sat, hands)
+    #cv.Mul(hue, sat, hands)
     
 
     #smooth + threshold to filter noise
     #cv.Smooth(hands, hands, smoothtype=cv.CV_GAUSSIAN, param1=13, param2=13)
-    cv.Threshold(hands, hands, 200, 255, cv.CV_THRESH_BINARY)
-    cv.ShowImage('Hands', hands)
+    #cv.Threshold(hands, hands, 200, 255, cv.CV_THRESH_BINARY)
+    #cv.ShowImage('Hands', hands)
     
     #cv.ShowImage('RGB' ,cv.Image)
 
