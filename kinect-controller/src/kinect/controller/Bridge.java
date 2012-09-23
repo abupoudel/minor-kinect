@@ -44,7 +44,7 @@ public class Bridge {
             } else {
                 int j;
                 for(j=0; j<global.allowedTypes.length; j++){
-                    if(fileName.endsWith(global.allowedTypes[j])) break;
+                    if(fileName.toLowerCase().endsWith(global.allowedTypes[j])) break;
                 }
                 if(j == global.allowedTypes.length) continue;
             }

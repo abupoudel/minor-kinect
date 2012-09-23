@@ -38,21 +38,25 @@ public class KinectController extends Application {
         global.we.load(file.toURI().toString());
         global.we.getLoadWorker().stateProperty().addListener(
                 new ChangeListener<State>() {
-
                     @Override
                     public void changed(ObservableValue<? extends State> ov, State oldState, State newState) {
+                        String root;
                         if (newState == State.SUCCEEDED) {
                             JSObject jsobj = (JSObject) global.we.executeScript("window");
                             Bridge myB = new Bridge();
                             jsobj.setMember("java", myB);
-                            String root = "C:/";
-                            global.we.executeScript("setRootDirectory(\""+root+"\")");
+                            if (System.getProperty("os.name").toLowerCase().contentEquals("win")) {
+                                root = "C:\\";
+                            } else {
+                                root = "/";
+                            }
+                            global.we.executeScript("setRootDirectory(\"" + root + "\")");
                             myB.listFolder(root);
                         }
                     }
                 });
         Scene scene = new Scene(global.wb, 300, 250);
-        
+
         EventDispatcher originalDispatcher = primaryStage.getEventDispatcher();
         primaryStage.setEventDispatcher((new MyEventDispatcher(originalDispatcher)));
         primaryStage.setScene(scene);
@@ -77,7 +81,7 @@ class MyEventDispatcher implements EventDispatcher {
                 mouseEvent.consume();
             }
         }
-        
+
         if (event instanceof javafx.scene.input.KeyEvent) {
             KeyEvent ke = (KeyEvent) event;
             if (ke.getCode().toString().contains("ESCAPE")) {

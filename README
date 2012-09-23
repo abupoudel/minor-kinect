@@ -2,7 +2,7 @@ Note to my project partners:
 Please do not commit kinect-controller/nbproject/ folder's files
 
 # ====================================================================
-# Kinect project for Kathford Internation College
+# Kinect project for Kathford International College
 # ====================================================================
 # Features:
 # ====================================================================
@@ -14,8 +14,8 @@ Please do not commit kinect-controller/nbproject/ folder's files
 # ====================================================================
 # - Finest Hand detection
 # - Mouse movement with the help of python api
-# - Multiple hand detection
 # - Implement all of these on a python class
+# - Haar training for Right hand detection(as for project)
 # - Enjoy :)
 # ====================================================================
 # Informations:
@@ -36,6 +36,7 @@ Please do not commit kinect-controller/nbproject/ folder's files
 # - Interfacing between Java and JavaScript - success
 # - jQuery implementation - success
 # - png loading - success
+# - haar implementation success to pthon
 # ====================================================================
 # 
 # Way to go for our project :)

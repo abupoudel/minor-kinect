@@ -6,9 +6,33 @@ import cython
 import Image
 
 keep_running = True
-myAngle = 0
+myAngle = 10
 
 print "Press ESC to exit | \"w\" to tilt sensor up | \"s\" to tilt sensor down"
+
+def detect(image):
+    image_size = cv.GetSize(image)
+ 
+    # create grayscale version
+    grayscale = cv.CreateImage(image_size, 8, 1)
+    cv.CvtColor(image, grayscale, cv.CV_BGR2GRAY)
+ 
+    # create storage
+    storage = cv.CreateMemStorage(0)
+    #cv.ClearMemStorage(storage)
+ 
+    # equalize histogram
+    cv.EqualizeHist(grayscale, grayscale)
+ 
+    # detect objects
+    cascade = cv.Load('haarcascade_frontalface_alt.xml')
+    faces = cv.HaarDetectObjects(grayscale, cascade, storage, 1.2, 2,cv.CV_HAAR_DO_CANNY_PRUNING, (100,100))
+ 
+    if faces:
+        print 'hand detected!'
+        for (x,y,w,h),n in faces:
+			cv.Rectangle(image, (x,y), (x+w,y+h), 255)
+			print "(%d,%d)" % (x , y)
 
 def display_depth(dev, data, timestamp):
     global keep_running
@@ -32,7 +56,8 @@ def display_rgb(dev, data, timestamp):
 
     cv.Split(hsv, hue, sat, val, None)
 
-    #cv.ShowImage('Live', image)
+    detect(image)
+    cv.ShowImage('Live', image)
     #cv.ShowImage('Hue', hue)
     #cv.ShowImage('Saturation', sat)
 
@@ -53,7 +78,6 @@ def display_rgb(dev, data, timestamp):
     #smooth + threshold to filter noise
     #cv.Smooth(hands, hands, smoothtype=cv.CV_GAUSSIAN, param1=13, param2=13)
     cv.Threshold(hands, hands, 200, 255, cv.CV_THRESH_BINARY)
-
     cv.ShowImage('Hands', hands)
     
     #cv.ShowImage('RGB' ,cv.Image)
