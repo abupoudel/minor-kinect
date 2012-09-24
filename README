@@ -14,7 +14,7 @@ Please do not commit kinect-controller/nbproject/ folder's files
 # ====================================================================
 # - Finest Hand detection
 # - Mouse movement with the help of python api
-# - Implement all of these on a python class
+# - Implement all of these on a python class(may not require)
 # - Haar training for Right hand detection(as for project)
 # - Enjoy :)
 # ====================================================================
