@@ -23,9 +23,9 @@ def display_depth(dev, data, timestamp):
 def display_rgb(dev, data, timestamp):
 	global image
 	cv.Image = frame_convert.video_cv(data)
-	cv.Flip(cv.Image,None,1)
+	#cv.Flip(cv.Image,None,1)
 	image = cv.Image
-	cv.ShowImage('Live', image)
+	cv.ShowImage('Live', cv.Image)
 	
 def body(dev,ctx):
 	if sys.argv < 2:
@@ -45,8 +45,10 @@ def body(dev,ctx):
 		myAngle = myAngle - 5
 	elif chr(k) == 'p' or chr(k) == 'P':
 		cv.SaveImage('positive/pos-'+ rand_string(10) + '.jpg',image)
+		print "Positive image saved"
 	elif chr(k) == 'n' or chr(k) == 'N':
 		cv.SaveImage('negative/neg-'+ rand_string(10) + '.jpg',image)
+		print "Negative image saved"
 	freenect.set_led(dev,1)
 	freenect.set_tilt_degs(dev,myAngle)
 	if not keep_running:

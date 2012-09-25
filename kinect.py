@@ -25,8 +25,8 @@ def detect(image):
     cv.EqualizeHist(grayscale, grayscale)
  
     # detect objects
-    cascade = cv.Load('haarcascade_frontalface_alt.xml')
-    faces = cv.HaarDetectObjects(grayscale, cascade, storage, 1.2, 2,cv.CV_HAAR_DO_CANNY_PRUNING, (100,100))
+    cascade = cv.Load('hand_cascade.xml')
+    faces = cv.HaarDetectObjects(grayscale, cascade, storage, 1.2, 2,cv.CV_HAAR_DO_CANNY_PRUNING, (150,150))
  
     if faces:
         print 'hand detected!'
@@ -55,7 +55,7 @@ def display_rgb(dev, data, timestamp):
     #cv.CvtColor(image, hsv, cv.CV_BGR2HSV)
 
     #cv.Split(hsv, hue, sat, val, None)    
-    cv.SaveImage("out.jpg",image);
+    #cv.SaveImage("out.jpg",image);
     detect(image)
     cv.ShowImage('Live', image)
     #cv.ShowImage('Hue', hue)
