@@ -13,7 +13,7 @@ h1{
 html, body {
 	cursor: url('../images/mouse_hide.png'),auto;
 	margin: 0px;
-	@background-color:#FFFFFF;
+	background: url('../images/background.jpg');
 	overflow: hidden;
 	padding: 0px;
 	z-index: -2;
@@ -24,7 +24,9 @@ html, body {
 	height: 128px;
 	background: url('../images/hand.png');
 	position: absolute;
-	z-index: -1;
+	opacity: .3;
+	z-index: 1;
+	pointer-events: none;
 }
 
 .content{
@@ -32,6 +34,7 @@ html, body {
 	height: 100%;
 	overflow: hidden;
 	margin: 0 auto;
+	z-index: -1;
 }
 
 .log{
@@ -52,6 +55,7 @@ html, body {
 	padding-left: 10px;
 	background: black;
 	opacity: .5;
+	z-index: 2;
 }
 
 .pane_icon{
@@ -59,6 +63,7 @@ html, body {
 	height: 64px;
 	left: 18px;
 	position: relative;
+	z-index: 2;
 }
 
 .exit_app{
@@ -75,7 +80,7 @@ html, body {
 
 
 .lists{
-	width: 670px;
+	width: 608px;
 	border: 1px solid;
 	height: 445px;
 	margin: 0 auto;
@@ -87,11 +92,24 @@ html, body {
 }
 
 .lists-sub{
-	width: 200px;
-	height: 200px;
-	border: 1px solid;
+	width: 128px;
+	height: 150px;
+	background: url('../images/folder.png') no-repeat;
+	border: 2px solid;
 	float: left;
 	margin: 10px;
+	margin-bottom: 60px;
+	color: white;
+}
+
+.file_name{
+	width: 128px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	top: 128px;
 }
 
 .pageUp{
@@ -99,6 +117,7 @@ html, body {
 	background-image: url('../images/up.png');
 	margin: 0 auto;
 	width: 128px;
+	z-index: 1;
 }
 
 .pageDown{
@@ -106,4 +125,5 @@ html, body {
 	background-image: url('../images/down.png');
 	margin: 0 auto;
 	width: 128px;
+	z-index: 1;
 }
