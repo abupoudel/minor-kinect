@@ -31,8 +31,7 @@ $(document).ready(function(){
             });
         },
         mouseout: function(){
-            $("#cursor").stop();
-            $("#cursor").fadeTo("fast", 0.3);
+            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
         }
     });
 	
@@ -56,8 +55,7 @@ $(document).ready(function(){
             });
         },
         mouseout: function(){
-            $("#cursor").stop();
-            $("#cursor").fadeTo("fast", 0.3);
+            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
         }
     });
 
@@ -72,8 +70,7 @@ $(document).ready(function(){
             });
         },
         mouseout: function(){
-            $("#cursor").stop();
-            $("#cursor").fadeTo("fast", 0.3);
+            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
         }
     });
 	

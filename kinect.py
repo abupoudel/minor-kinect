@@ -39,7 +39,9 @@ def display_depth(dev, data, timestamp):
 	
     cv.Image = frame_convert.pretty_depth_cv(data)
     cv.Flip(cv.Image,None,1)
-    #cv.ShowImage('Depth' ,cv.Image)
+    image = cv.Image
+    #detect(image)
+    #cv.ShowImage('Depth' ,grayscale)
 	
 def display_rgb(dev, data, timestamp):
 	
@@ -73,6 +75,7 @@ def display_rgb(dev, data, timestamp):
     #cv.ShowImage('Hue threshold', hue)
 
     #cv.Mul(hue, sat, hands)
+    #detect(hands)
     
 
     #smooth + threshold to filter noise
