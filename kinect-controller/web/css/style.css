@@ -7,123 +7,131 @@
 */
 
 h1{
-	color: red;
+    color: red;
 }
 
 html, body {
-	cursor: url('../images/mouse_hide.png'),auto;
-	margin: 0px;
-	background: url('../images/background.jpg');
-	overflow: hidden;
-	padding: 0px;
-	z-index: -2;
+    cursor: url('../images/mouse_hide.png'),auto;
+    margin: 0px;
+    background: url('../images/background.jpg');
+    overflow: hidden;
+    padding: 0px;
+    z-index: -2;
 }
 
 .cursor{
-	width: 128px;
-	height: 128px;
-	background: url('../images/hand.png');
-	position: absolute;
-	opacity: .3;
-	z-index: 1;
-	pointer-events: none;
+    width: 128px;
+    height: 128px;
+    background: url('../images/hand.png');
+    position: absolute;
+    opacity: .3;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .content{
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	margin: 0 auto;
-	z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: -1;
 }
 
 .log{
-	width: 100%;
-	position: fixed;
-	bottom: 0px;
-	background-color: #333;
-	color: white;
-	opacity: .3;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    background-color: #333;
+    color: white;
+    opacity: .3;
 }
 
 .pane{
-	position: fixed;
-	width: 100px;
-	right: -99px;
-	top:0px;
-	bottom: 0px;
-	padding-left: 10px;
-	background: black;
-	opacity: .5;
-	z-index: 2;
+    position: fixed;
+    width: 100px;
+    right: -99px;
+    top:0px;
+    bottom: 0px;
+    padding-left: 10px;
+    background: black;
+    opacity: .5;
+    z-index: 2;
 }
 
 .pane_icon{
-	width: 64px;
-	height: 64px;
-	left: 18px;
-	position: relative;
-	z-index: 2;
+    width: 64px;
+    height: 64px;
+    left: 18px;
+    position: relative;
+    z-index: 2;
 }
 
 .exit_app{
-	background: url('../images/exit_app.png');
+    background: url('../images/exit_app.png');
 }
 .home_app{
-	background: url('../images/home_app.png');
+    background: url('../images/home_app.png');
 }
 
 .clear{
-	clear: both;
-	height: 5px;
+    clear: both;
+    height: 5px;
 }
 
 
 .lists{
-	width: 608px;
-	border: 1px solid;
-	height: 445px;
-	margin: 0 auto;
-	overflow: hidden;
+    width: 608px;
+    border: 1px solid;
+    height: 445px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .frame{
-	position: relative;
+    position: relative;
 }
 
 .lists-sub{
-	width: 128px;
-	height: 150px;
-	background: url('../images/folder.png') no-repeat;
-	border: 2px solid;
-	float: left;
-	margin: 10px;
-	margin-bottom: 60px;
-	color: white;
+    width: 128px;
+    height: 170px;
+    background: url('../images/folder.png') no-repeat;
+    border: 2px solid;
+    float: left;
+    margin: 10px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.jpg, .png, .gif, .jpeg{
+    background: url('../images/image.png') no-repeat !important;
+}
+
+.mp3{
+    background: url('../images/music.png') no-repeat !important;
 }
 
 .file_name{
-	width: 128px;
-	margin: 0 auto;
-	text-align: center;
-	color: white;
-	font-weight: bold;
-	position: relative;
-	top: 128px;
+    width: 128px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    top: 128px;
 }
 
 .pageUp{
-	height: 128px;
-	background-image: url('../images/up.png');
-	margin: 0 auto;
-	width: 128px;
-	z-index: 1;
+    height: 128px;
+    background-image: url('../images/up.png');
+    margin: 0 auto;
+    width: 128px;
+    z-index: 1;
 }
 
 .pageDown{
-	height: 128px;
-	background-image: url('../images/down.png');
-	margin: 0 auto;
-	width: 128px;
-	z-index: 1;
+    height: 128px;
+    background-image: url('../images/down.png');
+    margin: 0 auto;
+    width: 128px;
+    z-index: 1;
 }

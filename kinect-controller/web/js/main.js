@@ -103,6 +103,11 @@ $(document).ready(function(){
     });
 });
 
+function getFileExtension(filename) {
+    var parts = filename.split('.');
+    return parts[parts.length-1];
+}
+
 function fileList(dirDetail, files){
     var dirDetail = $.parseJSON(dirDetail);
     var fileLists = $.parseJSON(files);
@@ -112,8 +117,10 @@ function fileList(dirDetail, files){
     $.each(fileLists,function(key, data){
         if(data.substr(0,6) == "[DIR] ")
             content += "<div class='lists-sub folder' onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'><div class='file_name'>"+data+"</div></div>";
-        else 
-            content += "<div class='lists-sub file' onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'><div class='file_name'>"+data+"</div></div>";
+        else{ 
+            var fileext = getFileExtension(data).toLowerCase();
+            content += "<div class='lists-sub file "+ fileext +"' onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'><div class='file_name'>"+data+"</div></div>";
+        }
         numbers++;
     });
     page = parseInt(numbers/perPage);
@@ -121,6 +128,15 @@ function fileList(dirDetail, files){
     $('.content').html(content);
     initializePage(page);
     currentPage = 0;
+}
+
+function setContent(content){
+    var newCont = "";
+    newCont += "<br><div class='lists'><div class='frame'>";
+    newCont += content;
+    newCont += "</div></div>";
+    
+    $('.content').html(newCont);
 }
 
 function initializePage(myPage){
