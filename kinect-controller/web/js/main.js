@@ -1,8 +1,10 @@
 var rootDirectory = "/";
+var parentDirectory = "/";
 var perPage = 6;
 var numbers = 0;
 var page = 0;
 var currentPage = 0;
+var playing = false;
 
 $(document).ready(function(){
     $(document).mousemove(function(event){
@@ -51,6 +53,21 @@ $(document).ready(function(){
             }
         }
     });
+    
+    $(".playpause").live({
+        click: function(){
+            var player = $("#myPlayer");
+            if (playing == true) {
+                $(this).css('background',"url('images/play.png')");
+                player.trigger("pause");
+                setPlaying(!playing);
+            } else {
+                $(this).css('background',"url('images/pause.png')");
+                player.trigger("play");
+                setPlaying(!playing);
+            }
+        }
+    });
 	
     $(".pane").mouseover(function(){
         $(this).stop();
@@ -66,7 +83,7 @@ $(document).ready(function(){
         $(this).stop();
         $(".cursor").css('background',"url('images/hand.png')");
         $(this).animate({
-            right: '-99px'
+            right: '-139px'
         },250,function(){
 			
             });
@@ -79,6 +96,10 @@ $(document).ready(function(){
     $(".home_app").click(function(){
         java.listFolder(rootDirectory);
     });
+    
+    $(".back_app").click(function(){
+        java.listFolder(parentDirectory);
+    });
 });
 
 function getFileExtension(filename) {
@@ -86,8 +107,8 @@ function getFileExtension(filename) {
     return parts[parts.length-1];
 }
 
-function fileList(dirDetail, files){
-    var dirDetail = $.parseJSON(dirDetail);
+function fileList(dirDetails, files){
+    var dirDetail = $.parseJSON(dirDetails);
     var fileLists = $.parseJSON(files);
     var content = "";
     numbers = 0;
@@ -104,13 +125,14 @@ function fileList(dirDetail, files){
     page = parseInt(numbers/perPage);
     content += "</div></div><div class='pageDown mousy'></div>";
     $('.content').html(content);
+    setParentDirectory(dirDetail.parentDir);
     initializePage(page);
     currentPage = 0;
 }
 
 function setContent(content){
     var newCont = "";
-    newCont += "<br><span style='height: 128px;'><div class='lists'><div class='frame'>";
+    newCont += "<br><div style='height: 128px;'></div><div class='lists'><div class='frame'>";
     newCont += content;
     newCont += "</div></div>";
     
@@ -130,4 +152,12 @@ function noPage(){
 
 function setRootDirectory(dir){
     rootDirectory = dir;
+}
+
+function setParentDirectory(dir){
+    parentDirectory = dir;
+}
+
+function setPlaying(play){
+    playing = play;
 }

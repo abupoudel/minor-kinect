@@ -47,6 +47,10 @@ Please do not commit kinect-controller/nbproject/ folder's files
 # - jQuery implementation - success
 # - png loading - success
 # - haar implementation success to pthon
+# - MP3 playing success
+# - Image loading success after mouse hover
+# - Back button implemented
+# - JAVA portion all completed
 # ====================================================================
 # 
 # Way to go for our project :)

@@ -48,8 +48,8 @@ html, body {
 
 .pane{
     position: fixed;
-    width: 100px;
-    right: -99px;
+    width: 140px;
+    right: -139px;
     top:0px;
     bottom: 0px;
     padding-left: 10px;
@@ -59,8 +59,8 @@ html, body {
 }
 
 .pane_icon{
-    width: 64px;
-    height: 64px;
+    width: 128px;
+    height: 128px;
     left: 18px;
     position: relative;
     z-index: 2;
@@ -71,6 +71,9 @@ html, body {
 }
 .home_app{
     background: url('../images/home_app.png');
+}
+.back_app{
+    background: url('../images/back_app.png');
 }
 
 .clear{
@@ -84,7 +87,14 @@ html, body {
     border: 1px solid;
     height: 445px;
     margin: 0 auto;
+    text-align: center;
     overflow: hidden;
+}
+
+.lists img{
+    max-width: 608px;
+    max-height: 425px;
+    padding-top: 10px;
 }
 
 .frame{
@@ -134,4 +144,14 @@ html, body {
     margin: 0 auto;
     width: 128px;
     z-index: 1;
+}
+
+.playpause{
+    background-image: url('../images/pause.png');
+    height: 128px;
+    margin: 0 auto;
+    width: 128px;
+    z-index: 1;
+    position: relative;
+    top: 158.5px;
 }

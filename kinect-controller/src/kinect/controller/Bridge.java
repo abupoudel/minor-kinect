@@ -23,12 +23,13 @@ public class Bridge {
 
     public void fileHandle(String filePath) {
         String fileExt = filePath.substring(filePath.lastIndexOf(".") + 1).toLowerCase();
+        File thisFile = new File(filePath);
         System.out.println(fileExt);
         String fileOperation = "file://" + filePath;
         String output;
         switch (fileExt) {
             case "mp3":
-                output = "<audio autoplay='autoplay' id='myPlayer'><source src='"+fileOperation+"' type='audio/mpeg' />The webkit doesn't support mp3</audio>";
+                output = "<audio autoplay='autoplay' id='myPlayer'><source src='"+fileOperation+"' type='audio/mpeg' />The webkit doesn't support mp3</audio><div class='playpause mousy'>";
                 break;
             case "jpg":
             case "jpeg":
@@ -39,6 +40,8 @@ public class Bridge {
             default:
                 output = "Error specifying the file.";
         }
+        global.we.executeScript("setPlaying(true);");
+        global.we.executeScript("setParentDirectory(\""+thisFile.getParent().toString()+"\");");
         global.we.executeScript("setContent(\""+output+"\");");
     }
 

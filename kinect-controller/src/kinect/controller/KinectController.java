@@ -51,6 +51,7 @@ public class KinectController extends Application {
                                 root = "/";
                             }
                             global.we.executeScript("setRootDirectory(\"" + root + "\")");
+                            global.we.executeScript("setParentDirectory(\"" + root + "\")");
                             myB.listFolder(root);
                         }
                     }
