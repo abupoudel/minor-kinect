@@ -28,8 +28,7 @@ public class Bridge {
         String output;
         switch (fileExt) {
             case "mp3":
-                //output = "<embed height='100' width='100' src='"+fileOperation+"'>";
-                output = "<audio autoplay='autoplay'><source src='"+fileOperation+"' type='audio/mpeg' />Your browser does not support the audio element.</audio>";
+                output = "<audio autoplay='autoplay' id='myPlayer'><source src='"+fileOperation+"' type='audio/mpeg' />The webkit doesn't support mp3</audio>";
                 break;
             case "jpg":
             case "jpeg":

@@ -10,6 +10,21 @@ $(document).ready(function(){
         $(".cursor").css('top',event.pageY - 64);
         $(".position").html("(" + event.pageX + "," + event.pageY + ")");
     });
+    
+    $(".mousy").live({
+        mouseover: function(){
+            var myEvent = $(this);
+            $('#cursor').animate({
+                opacity: 1
+            }, 2000, function() {
+                myEvent.click();
+                $("#cursor").fadeTo("fast", 0.3);
+            });
+        },
+        mouseout: function(){
+            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
+        } 
+    });
 	
     $(".pageUp").live({
         click: function(){
@@ -21,17 +36,6 @@ $(document).ready(function(){
                 }, 500, function(){
                     })
             }
-        },
-        mouseover: function(){
-            $('#cursor').animate({
-                opacity: 1
-            }, 2000, function() {
-                $(".pageUp").click();
-                $("#cursor").fadeTo("fast", 0.3);
-            });
-        },
-        mouseout: function(){
-            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
         }
     });
 	
@@ -45,32 +49,6 @@ $(document).ready(function(){
                 }, 500, function(){
                     })
             }
-        },
-        mouseover: function(){
-            $('#cursor').animate({
-                opacity: 1
-            }, 2000, function() {
-                $(".pageDown").click();
-                $("#cursor").fadeTo("fast", 0.3);
-            });
-        },
-        mouseout: function(){
-            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
-        }
-    });
-
-    $(".lists-sub").live({
-        mouseover: function(){
-            var topFolder = $(this);
-            $('#cursor').animate({
-                opacity: 1
-            }, 2000, function() {
-                topFolder.click();
-                $("#cursor").fadeTo("fast", 0.3);
-            });
-        },
-        mouseout: function(){
-            $("#cursor").stop(true, false).fadeTo("fast", 0.3);
         }
     });
 	
@@ -113,18 +91,18 @@ function fileList(dirDetail, files){
     var fileLists = $.parseJSON(files);
     var content = "";
     numbers = 0;
-    content += "<b>"+dirDetail.currentDir+"<b><br><div class='pageUp'></div><div class='lists'><div class='frame'>";
+    content += "<b>"+dirDetail.currentDir+"<b><br><div class='pageUp mousy'></div><div class='lists'><div class='frame'>";
     $.each(fileLists,function(key, data){
         if(data.substr(0,6) == "[DIR] ")
-            content += "<div class='lists-sub folder' onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'><div class='file_name'>"+data+"</div></div>";
+            content += "<div class='lists-sub mousy folder' onclick='java.listFolder(\""+dirDetail.currentDir+"/"+data.substr(6)+"\")'><div class='file_name'>"+data+"</div></div>";
         else{ 
             var fileext = getFileExtension(data).toLowerCase();
-            content += "<div class='lists-sub file "+ fileext +"' onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'><div class='file_name'>"+data+"</div></div>";
+            content += "<div class='lists-sub mousy file "+ fileext +"' onclick='java.fileHandle(\""+dirDetail.currentDir+"/"+data+"\")'><div class='file_name'>"+data+"</div></div>";
         }
         numbers++;
     });
     page = parseInt(numbers/perPage);
-    content += "</div></div><div class='pageDown'></div>";
+    content += "</div></div><div class='pageDown mousy'></div>";
     $('.content').html(content);
     initializePage(page);
     currentPage = 0;
@@ -132,7 +110,7 @@ function fileList(dirDetail, files){
 
 function setContent(content){
     var newCont = "";
-    newCont += "<br><div class='lists'><div class='frame'>";
+    newCont += "<br><span style='height: 128px;'><div class='lists'><div class='frame'>";
     newCont += content;
     newCont += "</div></div>";
     
